@@ -1,0 +1,62 @@
+// _animation.scss
+
+// Fade In Animation
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Slide In Animation
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+// // Heart beat Animation
+// @keyframes breathIn {
+//   from {
+//     transform: translateY(-0.4rem);
+
+//     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+//   }
+//   to {
+//     transform: translateY(0);
+//   }
+// }
+
+// Bounce Animation
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-1rem);
+  }
+  60% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+// Usage Examples
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+// .bounce {
+//   animation: bounce 2s infinite;
+// }
