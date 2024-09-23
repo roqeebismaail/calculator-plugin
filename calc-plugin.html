@@ -89,7 +89,7 @@
                      <button class="btn r1c1 ${this.btn1}">C</button>
                      <button class="btn r1c2 ${this.btn1}">DEL</button>
                      <button class="btn r1c3 ${this.btn1}">%</button>
-                     <button class="btn r1c4 ${this.btn0}">/</button>
+                     <button class="btn r1c4 ${this.btn0}">÷</button>
 
                      <button class="btn r2c1 ${this.btn}">7</button>
                      <button class="btn r2c2 ${this.btn}">8</button>
@@ -123,13 +123,37 @@
               let swapScreen = document.querySelector("#swap-calc");
 
               if (value == "=") {
-                // swap x -------- * and / ----------
+                //------------------functionReplace
+                function replaceSyntax(unValidString, validString) {
+                  let calcX = screen.innerHTML.replace(
+                    unValidString,
+                    validString
+                  );
+
+                  //-------------swapCALCULATION
+
+                  swapScreen.innerHTML = screen.innerHTML;
+
+                  //-----------------EVALUATION(Calculate)
+
+                  screen.innerHTML = eval(calcX);
+                  return;
+                }
+
+                if (screen.innerHTML.includes("x")) {
+                  replaceSyntax("x", "*");
+                }
+
+                if (screen.innerHTML.includes("÷")) {
+                  replaceSyntax("÷", "/");
+                }
 
                 //-----------------SWAPPING HERE
+                //-------------swapCALCULATION
 
                 swapScreen.innerHTML = screen.innerHTML;
 
-                //-----------------EVALUATION
+                //-----------------EVALUATION(Calculate)
 
                 screen.innerHTML = eval(screen.innerHTML);
 
@@ -139,42 +163,23 @@
                   screen.innerHTML = "Error Input";
                   return;
                 }
+
+                //-------------changeValue
+
+                //--------------ClearSCREEN
+              } else if (value == "C") {
+                screen.innerHTML = "";
+                // console.log(screen.innerHTML);
+
+                //-------------clearSwapSCREEN
+              } else if (screen.innerHTML == null && value == "C") {
+                console.log(screen.innerHTML);
+
+                //--------------------deleteBUTTON()
               } else if (value.toLowerCase() == "del") {
                 screen.innerHTML != value;
               } else {
                 screen.innerHTML += value;
-              }
-
-              if (value.toLowerCase() == "c") {
-                screen.innerHTML = "";
-              } else if (value.toLowerCase() == "del") {
-                // for (let index = 0; index < screen.innerHTML.length; index++) {
-                // }
-                // screen.innerHTML.length() - 1 += '';
-
-                let delScreen = screen.innerHTML;
-
-                delScreen.forEach((element) => {
-                  console.log(
-                    delScreen
-                      .split("")
-                      .slice(
-                        screen.innerHTML.length - 1,
-                        screen.innerHTML.length
-                      )
-                  );
-                });
-
-                // let delScreen = screen.innerHTML
-                //   .split("")
-                //   .slice(
-                //     screen.innerHTML.length - 1,
-                //     screen.innerHTML.length,
-                //     ""
-                //   );
-
-                console.log(delScreen);
-                console.log(screen.innerHTML);
               }
             });
           });

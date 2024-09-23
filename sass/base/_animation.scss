@@ -1,37 +1,27 @@
 // _animation.scss
 
-// Fade In Animation
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-// Slide In Animation
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-// // Heart beat Animation
-// @keyframes breathIn {
+// //--------------------- Fade In Animation
+// @keyframes fadeIn {
 //   from {
-//     transform: translateY(-0.4rem);
-
-//     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+//     opacity: 0;
 //   }
 //   to {
-//     transform: translateY(0);
+//     opacity: 1;
 //   }
 // }
 
-// Bounce Animation
+// //--------------------- Slide In Animation
+// @keyframes slideIn {
+//   from {
+//     transform: translateX(-100%);
+//   }
+//   to {
+//     transform: translateX(0);
+//   }
+// }
+
+//----------------------- Bounce Animation
+
 @keyframes bounce {
   0%,
   20%,
@@ -48,15 +38,11 @@
   }
 }
 
-// Usage Examples
-.fade-in {
-  animation: fadeIn 1s ease-in-out;
-}
+//----------------Reference usage
+// .fade-in {
+//   animation: fadeIn 1s ease-in-out;
+// }
 
-.slide-in {
-  animation: slideIn 0.5s ease-out;
-}
-
-// .bounce {
-//   animation: bounce 2s infinite;
+// .slide-in {
+//   animation: slideIn 0.5s ease-out;
 // }
